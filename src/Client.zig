@@ -1,15 +1,15 @@
-const Client = @This();
+pub const Client = @This();
 const std = @import("std");
 const C = @import("c.zig");
 
-const Options = struct {
+pub const Options = struct {
     allocator: std.mem.Allocator,
     custom_cookies: []const u8 = "",
     custom_ciphers: []const u8 = "AES256-SHA:AES128-SHA",
     custom_user_agent: []const u8 = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.100 Safari/537.36",
 };
 
-const Response = struct {
+pub const Response = struct {
     status_code: i64,
     response: [:0]u8,
 };
