@@ -25,6 +25,10 @@ exe.root_module.addImport("ja3_spoof", ja3_spoof);
 
 ### 🚀 Examples
 Example in ./examples folder
+Run with command: 
+```
+make EXAMPLE
+```
 
 ```zig
 const client = ja3_spoof.init(.{
