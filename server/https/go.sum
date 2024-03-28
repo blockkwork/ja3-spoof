@@ -1,0 +1,8 @@
+github.com/projectdiscovery/sslcert v0.0.0-20230323070725-246e4c801aac h1:bXeFVtqIjRRh4RU1ot+KiL3aWg1RA2VzU2CWOWh2CGE=
+github.com/projectdiscovery/sslcert v0.0.0-20230323070725-246e4c801aac/go.mod h1:4TQeYt+zGFRK2eKW/S7rmXVdmWO3Wpd30Ld1mt8awSg=
+golang.org/x/crypto v0.17.0 h1:r8bRNjWL3GshPW3gkd+RpvzWrZAwPS49OmTGZ/uhM4k=
+golang.org/x/crypto v0.17.0/go.mod h1:gCAAfMLgwOJRpTjQ2zCCt2OcSfYMTeZVSRtQlPC7Nq4=
+src.agwa.name/go-listener v0.5.1 h1:rksW/XeAwf20H+2XpjxkEexwglT0WxVT+7Gmk5RPzr0=
+src.agwa.name/go-listener v0.5.1/go.mod h1:vM7zjlskRnSbxbS8QTWYQIOfuKsn8SdJQH28RtouDTI=
+src.agwa.name/tlshacks v0.0.0-20231008131857-90d701ba3225 h1:KvJgNzDBgG6IawXLCenHhjvU7RXQ5UD1a18Nm2ZMyGg=
+src.agwa.name/tlshacks v0.0.0-20231008131857-90d701ba3225/go.mod h1:NT4HI59yJusF5Il4/DlC8F5+mfylE4CbRVwdoEi6MF8=
