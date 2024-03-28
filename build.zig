@@ -20,6 +20,8 @@ pub fn build(b: *std.Build) void {
     });
 
     lib.addIncludePath(std.Build.LazyPath.relative("src"));
+    lib.addIncludePath(std.Build.LazyPath.relative("src/c"));
+
 
     lib.linkSystemLibrary("c", .{});
     lib.linkSystemLibrary("libcurl", .{});
