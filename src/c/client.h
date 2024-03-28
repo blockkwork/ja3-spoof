@@ -16,7 +16,6 @@ struct {
 struct {
   char *ptr;
   char *error_msg;
-  unsigned char error_code;
   size_t len;
   long response_status_code;
 } typedef Response;

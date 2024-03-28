@@ -6,3 +6,5 @@ RUN:
 	zig build && ./zig-out/bin/ja3-spoof
 C:
 	gcc src/*.c src/c/*.c -lcurl && ./a.out
+EXAMPLE:
+	cd examples && zig build && ./zig-out/bin/examples

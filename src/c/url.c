@@ -7,29 +7,30 @@
 #include "client.h"
 
 void
-init_response(Response* s)
+init_response(Response* r)
 {
-    s->len = 0;
-    s->ptr = malloc(s->len + 1);
-    if (s->ptr == NULL) {
+    r->error_msg = "";
+    r->len = 0;
+    r->ptr = malloc(r->len + 1);
+    if (r->ptr == NULL) {
         fprintf(stderr, "malloc() failed\n");
         exit(EXIT_FAILURE);
     }
-    s->ptr[0] = '\0';
+    r->ptr[0] = '\0';
 }
 
 size_t
-writefunc(void* ptr, size_t size, size_t nmemb, Response* s)
+writefunc(void* ptr, size_t size, size_t nmemb, Response* r)
 {
-    size_t new_len = s->len + size * nmemb;
-    s->ptr = realloc(s->ptr, new_len + 1);
-    if (s->ptr == NULL) {
+    size_t new_len = r->len + size * nmemb;
+    r->ptr = realloc(r->ptr, new_len + 1);
+    if (r->ptr == NULL) {
         fprintf(stderr, "realloc() failed\n");
         exit(EXIT_FAILURE);
     }
-    memcpy(s->ptr + s->len, ptr, size * nmemb);
-    s->ptr[new_len] = '\0';
-    s->len = new_len;
+    memcpy(r->ptr + r->len, ptr, new_len - r->len);
+    r->ptr[new_len] = '\0';
+    r->len = new_len;
 
     return size * nmemb;
 }
@@ -55,18 +56,16 @@ domainRequest(Config config)
 
         res = curl_easy_perform(curl);
         if (res != CURLE_OK) {
-            r.error_code = res;
-            r.error_msg = "curl_easy_perform() failed";
+            r.error_msg = curl_easy_strerror(res);
             curl_easy_cleanup(curl);
             return r;
         }
         curl_easy_getinfo(curl, CURLINFO_RESPONSE_CODE, &response_code);
+        r.response_status_code = response_code;
         curl_easy_cleanup(curl);
     } else {
         r.error_msg = "curl_easy_init() failed";
-        r.error_code = 1;
         return r;
     }
-    r.response_status_code = response_code;
     return r;
 }
