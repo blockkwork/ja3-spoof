@@ -1,7 +1,5 @@
 const std = @import("std");
 
-const SUB_DIR = "ja3_lib";
-
 pub fn build(b: *std.Build) void {
     const target = b.standardTargetOptions(.{});
     const optimize = b.standardOptimizeOption(.{});
@@ -12,12 +10,12 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
 
-    lib.addIncludePath(.{ .path = SUB_DIR ++ "/." });
-    lib.addIncludePath(.{ .path = SUB_DIR ++ "/src" });
-    lib.addIncludePath(.{ .path = SUB_DIR ++ "/src/c" });
+    lib.addIncludePath(.{ .path = "." });
+    lib.addIncludePath(.{ .path = "src" });
+    lib.addIncludePath(.{ .path = "src/c" });
 
     lib.addCSourceFile(.{
-        .file = std.Build.LazyPath.relative(SUB_DIR ++ "/src/c/url.c"),
+        .file = std.Build.LazyPath.relative("src/c/url.c"),
         .flags = &[_][]const u8{"-lcurl"},
     });
 
